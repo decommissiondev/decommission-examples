@@ -1,0 +1,17 @@
+JSON
+{
+  "request": {
+    "method": "POST",
+    "body": {
+      "email": "lead@example.com",
+      "source": "landing_page"
+    }
+  },
+  "mocked_responses": [
+    {
+      "url": "https://api.crm-example.com/v1/leads",
+      "status": 200,
+      "body": { "id": "lead_9921", "status": "created" }
+    }
+  ]
+}
