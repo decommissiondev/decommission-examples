@@ -1,0 +1,109 @@
+{
+  "name": "Example webhook -> HTTP -> conditional set",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hook": 24,
+        "maxResults": 1
+      },
+      "mapper": {}
+    },
+    {
+      "id": 2,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": false
+      },
+      "mapper": {
+        "url": "https://api.example.com/v1/lookup",
+        "method": "post",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{env.API_TOKEN}}"
+          }
+        ],
+        "qs": [],
+        "bodyType": "raw",
+        "contentType": "application/json",
+        "parseResponse": true,
+        "data": "{\"customer\":\"{{1.customer}}\"}"
+      }
+    },
+    {
+      "id": 3,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "util:SetVariable2",
+              "version": 1,
+              "parameters": {},
+              "filter": {
+                "name": "accepted",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{2.data.status}}",
+                      "b": "active",
+                      "o": "text:equal"
+                    }
+                  ]
+                ]
+              },
+              "mapper": {
+                "name": "result",
+                "scope": "roundtrip",
+                "value": {
+                  "accepted": true,
+                  "customer": "{{1.customer}}"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 5,
+              "module": "util:SetVariable2",
+              "version": 1,
+              "parameters": {},
+              "filter": {
+                "name": "rejected",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{2.data.status}}",
+                      "b": "active",
+                      "o": "text:notequal"
+                    }
+                  ]
+                ]
+              },
+              "mapper": {
+                "name": "result",
+                "scope": "roundtrip",
+                "value": {
+                  "accepted": false,
+                  "customer": "{{1.customer}}"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "version": 1
+  }
+}

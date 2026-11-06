@@ -1,0 +1,27 @@
+{
+  "report": {
+    "schema": "decommission-replay-v1",
+    "compiler": "0.1.0",
+    "blueprintSha256": "208b235f8f9aa9ed8d27c163df540ed28f62c09f077a9eeb6743628c2109c125",
+    "cases": [
+      {
+        "name": "active route",
+        "passed": true,
+        "referenceSha256": "87a8ade79536ce9b7231b82c01149e350b49bbb9fd7d5ed59f073207dacfd0f4",
+        "generatedSha256": "87a8ade79536ce9b7231b82c01149e350b49bbb9fd7d5ed59f073207dacfd0f4"
+      },
+      {
+        "name": "inactive route",
+        "passed": true,
+        "referenceSha256": "a2ac81654fc867c43d39609ef0c24b7b9d6555f3acc3a3862da4b044cf252a33",
+        "generatedSha256": "a2ac81654fc867c43d39609ef0c24b7b9d6555f3acc3a3862da4b044cf252a33"
+      }
+    ],
+    "passed": true,
+    "signedAt": "2026-11-06T10:06:56.228Z",
+    "reportId": "fb05f347-679d-4d4f-9442-dd5d154a501d",
+    "warning": "Signed replay agreement against an independent subset interpreter and supplied mocks; NOT proof of production Make behavioral equivalence."
+  },
+  "signature": "2ilNa+a5W+pkLr/IAipwtvhG9o5Lhak7jWZ8b4u8MPZxjtxiHCXLVp9zlvCaibneHwe6LSXGQ1zG48KOXeO7Dg==",
+  "scope": "Mocked subset interpreter; no live API calls"
+}

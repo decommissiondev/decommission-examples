@@ -1,0 +1,17 @@
+name = "decommission-generated"
+main = "worker.ts"
+compatibility_date = "2026-10-01"
+workers_dev = true
+# Set your own account before deployment (or use CLOUDFLARE_ACCOUNT_ID).
+# account_id = "YOUR_32_CHARACTER_CLOUDFLARE_ACCOUNT_ID"
+
+# Optional private DLQ: create a customer-owned R2 bucket, then uncomment and set your name.
+# [[r2_buckets]]
+# binding = "DECOMMISSION_DLQ"
+# bucket_name = "YOUR_CUSTOMER_OWNED_DLQ_BUCKET"
+
+# Optional D1 state storage (not currently wired to strict compiler IR).
+# [[d1_databases]]
+# binding = "DECOMMISSION_STATE"
+# database_name = "YOUR_D1_DATABASE"
+# database_id = "YOUR_D1_DATABASE_ID"

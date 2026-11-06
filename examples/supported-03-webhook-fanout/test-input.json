@@ -1,6 +1,0 @@
-{
-  "type": "order.completed",
-  "userEmail": "customer@acme-corp.com",
-  "amount": 299.00,
-  "currency": "USD"
-}

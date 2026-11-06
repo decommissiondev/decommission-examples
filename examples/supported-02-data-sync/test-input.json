@@ -1,8 +1,0 @@
-{
-  "scheduledTime": 1700000000000,
-  "cronPattern": "0 */6 * * *",
-  "mockSourceRecords": [
-    { "id": "cust_101", "email": "alex@company.com", "updatedAt": "2026-11-06T10:00:00Z" },
-    { "id": "cust_102", "email": "sam@enterprise.io", "updatedAt": "2026-11-06T11:15:00Z" }
-  ]
-}
