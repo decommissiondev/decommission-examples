@@ -1,12 +1,4 @@
-# Supported Example 02: Scheduled Data Synchronization
-
-This package demonstrates a converted Make.com scenario that runs on a recurring cron schedule, pulling incremental updates from a CRM API and synchronizing them to a target database.
-
-## Architecture Highlights
-* **Trigger:** Replaces Make.com scheduled timers with native Cloudflare Worker `scheduled()` cron handlers (`0 */6 * * *`).
-* **Performance:** Executes in ~110ms compared to Make's 2,400ms overhead.
-* **Security:** API keys injected via environment secrets (`env.SOURCE_API_KEY`, `env.TARGET_API_KEY`).
-
-## How to Run Locally
-
-1. Clone the repository:
+## Directory Structure
+- [`/examples/supported-01-lead-routing`](examples/supported-01-lead-routing): Webhook payload ingestion and CRM routing.
+- [`/examples/supported-02-data-sync`](examples/supported-02-data-sync): Scheduled CRM delta fetch and database batch sync.
+- [`/docs/compatibility.md`](docs/compatibility.md): Complete module compatibility breakdown.
