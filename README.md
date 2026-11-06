@@ -8,6 +8,7 @@ This repository showcases Make.com visual scenario blueprints compiled into prod
 ## Directory Structure
 - [`/examples/supported-01-lead-routing`](examples/supported-01-lead-routing): Webhook payload ingestion and CRM routing.
 - [`/examples/supported-02-data-sync`](examples/supported-02-data-sync): Scheduled CRM delta fetch and database batch sync.
+- [`/examples/supported-03-webhook-fanout`](examples/supported-03-webhook-fanout): Inbound webhook fanout with parallel HTTP dispatch.
 - [`/docs/compatibility.md`](docs/compatibility.md): Complete module compatibility breakdown.
 
 ## License
