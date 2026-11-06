@@ -10,13 +10,7 @@
     "latencyReductionPercent": 95.4
   },
   "assertions": [
-    {
-      "test": "Cron expression mapping",
-      "status": "PASS"
-    },
-    {
-      "test": "Delta batch record serialization",
-      "status": "PASS"
-    }
+    { "test": "Cron expression mapping", "status": "PASS" },
+    { "test": "Delta batch record serialization", "status": "PASS" }
   ]
 }

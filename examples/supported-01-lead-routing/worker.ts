@@ -1,5 +1,5 @@
 export interface Env {
-  CRM_API_ENDPOINT: string;
+  CRM_API_KEY: string;
 }
 
 export default {
@@ -9,22 +9,26 @@ export default {
     }
 
     try {
-      const payload: any = await request.json();
-      
-      const crmResponse = await fetch(env.CRM_API_ENDPOINT || "https://api.crm-example.com/v1/leads", {
+      const payload = await request.json();
+
+      const crmResponse = await fetch("https://api.crm-example.com/v1/leads", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Authorization": `Bearer ${env.CRM_API_KEY}`,
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           email: payload.email,
-          source: payload.source || "webhook"
+          source: payload.source || "inbound_webhook"
         })
       });
 
-      return new Response(JSON.stringify({ status: "success", forwarded: crmResponse.ok }), {
+      return new Response(JSON.stringify({ status: "routed", code: crmResponse.status }), {
+        status: 200,
         headers: { "Content-Type": "application/json" }
       });
     } catch (err: any) {
-      return new Response(JSON.stringify({ error: err.message }), { status: 400 });
+      return new Response(JSON.stringify({ error: err.message }), { status: 500 });
     }
   }
 };
