@@ -6,6 +6,8 @@ Inspect a real generated TypeScript Cloudflare Worker, run its tests locally, th
 
 [![Example tests](https://github.com/decommissiondev/decommission-examples/actions/workflows/test.yml/badge.svg)](https://github.com/decommissiondev/decommission-examples/actions/workflows/test.yml)
 
+[Watch the guided walkthrough](https://decommission.dev/demo) · [Read the technical walkthrough](https://decommission.dev/make-to-cloudflare) · [Download the captioned video](https://github.com/decommissiondev/decommission-examples/releases/tag/v0.1.0)
+
 ## Try it in a few minutes
 
 Requires Node.js 22+ and npm. No DECOMMISSION account, Cloudflare account or API credentials are needed for local tests.
